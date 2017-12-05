@@ -1,0 +1,53 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :required => 'required'%>
+  </div></br>
+
+
+  <div class="field trix_weexus">
+    <%= f.label :content, :required => 'required' %>
+    <%= f.trix_editor :content, :required => 'required'%>
+  </div></br>
+
+  <div class = "prev_tags">
+    <%= post.get_tag_list %>
+  </div></br>
+
+
+  <div class="taglist">
+    <%= f.label :get_tag_list, 'Tag your Experience in our Cloud', class: 'tag list' %><br />
+    <select name="tags[]" id="tag_a" required>
+      <option value="">Select Tag</option>
+      <%= options_for_select(@tag_options) %>
+    </select>
+    <select name="tags[]" id="tag_b">
+      <option value="">Select Tag</option>
+      <%= options_for_select(@tag_options) %>
+    </select>
+    <select name="tags[]" id="tag_c">
+      <option value="">Select Tag</option>
+      <%= options_for_select(@tag_options) %>
+    </select>
+
+  </div></br>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div></br>
+
+<% end %>

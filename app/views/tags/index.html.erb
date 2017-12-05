@@ -1,0 +1,48 @@
+</br>
+<p id="notice"><%= notice %></p>
+
+<h1 class="mytitle">Our Experience Tags</h1></br>
+
+<br />
+  <div id="tag_cloud"><span class='shadow'></span>
+      <% tag_cloud Post.tag_counts, %w[a b c d e f] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag), class: css_class %>
+      <% end %>
+</div>
+  </br></br>
+
+<%= link_to 'Create a New Tag', new_tag_path %>
+</br></br>
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tags.each do |tag| %>
+      <tr>
+        <td><%= tag.name %></td>
+        <td><%= tag.status %></td>
+        <td><%= link_to 'Show all Tagged Posts', tag %></td>
+        <td><%= link_to icon('pencil-square-o'), edit_tag_path(tag) %></td>
+
+<!--ALEXH CHANGE STATUS IN EDIT RATHER THAN DESTROY TAGS
+        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-->
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<!-- renderer:BootstrapPagination::Rails -->
+<%= will_paginate @posts,renderer:BootstrapPagination::Rails, inner_window: 1,outer_window: 0%>

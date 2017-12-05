@@ -1,0 +1,364 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require trix
+ *= require jqcloud
+ */
+
+ @import "bootstrap-sprockets";
+
+ @import "bootstrap";
+ @import "tags";
+ @import "wordcloud";
+ @import "aboutweexus";
+ @import "contact";
+ @import "demo";
+ @import "polyscape";
+ @import "exclusions";
+ @import "howto";
+ @import "posts";
+ @import "privacy";
+ @import "trix_weexus";
+ @import "users";
+
+
+
+
+ /*div { border: 1px solid purple; }*/
+
+/* styles all text in a font that suits what the user is used to depending on their machine */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+ body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+
+/* pushes footer down to bottom of page */
+#main-content {
+  min-height: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* logo, sign out & search bar styling*/
+.firstheader {
+  display: flex;
+  border-bottom-color: #d3d3d3;
+  border-width: 0.5px;
+  align-items: center;
+}
+
+.firstheader div {
+  padding: 10px;
+}
+
+/* logo styling */
+.logo {
+  cursor: pointer;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  /*margin-right: 70%;
+  width: 5%;
+  height: 5%;*/
+  flex-grow: 3;
+}
+
+/* sign out button styling */
+.header_login {
+  font-size: 100%;
+  // margin-top: 10%;
+  }
+
+/* magnifying glass search button styling */
+.svgIcon-use {
+  /* margin-left: 50%; */
+}
+
+// div {
+//   border: 1px solid silver;
+// }
+
+#searchBox {
+  display: inline;
+  display: none;
+}
+
+.element.style {
+  margin-top: 50%;
+
+}
+
+/* flex container for second header e.g. home, edit profile, posts etc */
+.flex {
+  display: flex;
+  border-bottom-style: solid;
+  border-bottom-color: #d3d3d3;
+  border-width: 0.5px;
+  font-size: 14px;
+  border-top-style: solid;
+  border-top-color: #e6e6e6;
+  margin-left: 2%;
+  margin-right: 3%;
+  padding-bottom: 15px
+}
+
+
+/*fonts for main page*/
+
+.headerlinks {
+  color: #709FB0;
+
+}
+
+.headerlinks:hover {
+  color: #726A95;
+  text-decoration: none;
+}
+
+.welcomeb {
+  color: black;
+  font-size: 200%;
+}
+
+.welcomec {
+  color: #709FB0;
+  font-size: 100%;
+}
+
+.homelinks1 {
+  color: white;
+  text-shadow: 1px 1px lightgrey;
+  font-size: 155%;
+}
+
+.homelinks2 {
+  color: #709FB0;
+  /*text-shadow: 0.5px 0.5px black;*/
+  font-size: 70%;
+}
+
+.homelinks3 {
+  color: #351F39;
+  /*text-shadow: 0.5px 0.5px black;*/
+  font-size: 70%;
+}
+
+.title {
+  font-size: 200%;
+  color: #709FB0;
+  padding-top: 10px;
+}
+
+.mytitle {
+  font-size: 200%;
+  color: #709FB0;
+  padding-top: 10px;
+}
+
+.linkstyling1 {
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 120%;
+  text-decoration: none;
+}
+
+.linkstyling2 {
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 120%;
+  text-decoration: none;
+}
+
+.linkstyling1:hover {
+  text-decoration: none;
+  color: #709FB0;
+}
+
+.linkstyling2:hover {
+  text-decoration: none;
+  color: #351F39;
+}
+
+.abouttext1 {
+  font-size: 150%;
+  color: #726A95;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.abouttext2 {
+  font-size: 100%;
+  color: black;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* styling of second header flex items e.g. home, edit profile, posts etc */
+.flexitem {
+  flex-grow: 1;
+  margin-bottom: 2%;
+  margin-right: 5%;
+  margin-bottom: 1.5%;
+  margin-top: 1%;
+  margin-left: 1%;
+  white-space: nowrap;
+  color: #337ab7;
+  cursor: pointer !important;
+  text-align: center;
+}
+
+/* sets burger menu to not appear in desktop */
+.burger {
+  display: none;
+}
+
+#home {
+  color:  #4d4d4d;
+}
+
+/* desktop footer styling */
+.footer {
+  display: flex;
+  border-top-style: solid;
+  border-top-color: #d3d3d3;
+  border-width: 0.5px;
+  margin-top: -205;;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-bottom: 15px;
+}
+
+/* styling for buttons in footer */
+.flexitem {
+  flex-grow: 5;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px;
+  margin-top: 2%;
+  cursor: pointer !important;
+
+  }
+
+// /* styling for solely contact button in footer, separate to other buttons in footer */
+// .contact {
+//   flex-grow: 20;
+//   font-size: 14px;
+//   margin-right: 10%;
+//   // color: #999999;
+// }
+
+.submissionhelp {
+  font-size: 100%;
+}
+
+/* styling for facebook button only */
+#facebook {
+  margin-left: 1%;
+}
+
+.searchtab {
+  display: none;
+}
+
+
+
+@media only screen and (max-width: 500px) {
+
+  /* pushes footer down to bottom of page */
+  #main-content {
+    min-height: 450px;
+  }
+
+/*sets burger menu to appear in mobile*/
+  .burger {
+    display: inline;
+    cursor: pointer;
+    margin-left: 10%;
+  }
+
+ /* setting the the second navigation to not appear in mobile mode*/
+  .flex {
+      display: none;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+  }
+
+/* mobile logo, sign out & search bar styling*/
+  .firstheader {
+    display: flex;
+    width: 100%;
+    margin: 0px;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+ /* mobile logo styling */
+  .logo {
+      width: 100px;
+      margin: 0;
+      margin-right: 20%;
+    /*  margin-left: -15%; */
+
+  }
+
+  .header_login {
+    margin-top: 0;
+    margin-right: -10%;
+  }
+
+/* mobile magnifying glass search button styling */
+  // .search {
+  //   display: none;
+  //   cursor: pointer;
+  //   margin-top: 0%;
+  //   margin-left: 0%;
+  // }
+
+  .footer {
+    display: flex;
+    border-top-style: solid;
+    border-top-color: #d3d3d3;
+    border-width: 0.5px;
+    margin-top: 4%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+/* mobile styling for buttons in footer OTHER than contact */
+  .flexitem {
+    font-size: 100%;
+    color: 999999;
+  }
+
+/* mobile styling for solely contact button in footer, separate to other buttons in footer */
+  .contact {
+    font-size: 100%;
+    color: 999999;
+    margin-top: 3%;
+    margin-left: 2%;
+  }
+
+  .searchtab {
+    display: inline;
+  }
+
+  .svgIcon-use {
+    display: none;
+  }
+
+}

@@ -1,0 +1,81 @@
+
+<div>
+  <!--<div id="welcomea">
+      <h2 class="welcomeb">Share your unique experience.</h2>
+        <p>Share your experience with others, record your memories, create your story.</p>
+    </div>-->
+
+   <div id="polyscape-4" class="polyscape-background">
+      <div class="square-rotated"></div>
+      <div class="square-rotated-small"></div>
+      <div class="square"></div>
+      <div class="circle">
+
+        <div class="circle__inner">
+        <div class="circle__wrapper">
+
+        <div class="circle__content">
+        <div id="tag_cloud">
+          <% tag_cloud Post.tag_counts, %w[a b c d e f] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag), class: css_class %>
+          <% end %>
+        </div>
+      </div>
+
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+
+<div id="polyscape-1" class="polyscape-background">
+      <div class="square-rotated"></div>
+      <div class="square"></div>
+      <div class="circle">
+        <ul class="homelinks1" style="list-style: none">
+
+          <% if user_signed_in? %>
+            <li class="homelinks1"><%= link_to 'Share your Experience', '/posts/new', class: 'linkstyling1'%></li>
+            <% else %>
+            <li class="homelinks1"><%= link_to 'Share your Experience', '/my/users/sign_in', class: 'linkstyling1'%></li>
+            <% end %>
+
+            <li class="homelinks2">Share your experience with others, record your memories, create your story.</li>
+        </ul>
+
+        <div class="circle__inner">
+        <div class="circle__wrapper">
+
+      </div>
+      </div>
+
+      </div>
+    </div>
+
+
+  <div id="polyscape-5" class="polyscape-background">
+      <div class="triangle"></div>
+      <div class="triangle"></div>
+  <ul class="homelinks1" style="list-style: none">
+      <li class=homelinks1><%= link_to 'About Weexus', '/pages/aboutweexus', class: 'linkstyling2'%></li>
+      <li class="homelinks3">Weexus is an open platform for sharing unique personal experiences and stories from across the world.</li>
+      <li>
+
+  </ul>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <script>
+    $('#close-header').on('click', function (){
+      $(this).parent().addClass('hidden');
+    });
+    </script>
+
+    <script src="https://cdn.tutorialzine.com/misc/enhance/v3.js" async=""></script>
+
+</div>

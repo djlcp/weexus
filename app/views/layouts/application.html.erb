@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weexus</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag 'demo.css', media: 'all' %>
+    <%= stylesheet_link_tag 'polyscape.css', media: 'all' %>
+    <%= stylesheet_link_tag 'tags.css', media: 'all' %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  </head>
+
+  <body>
+
+<!--bootstrap-->
+  <div class="container">
+
+
+<header>
+  <div class="firstheader">
+
+    <div class="logo">
+    <%= image_tag "Final-Logo-blue.png", height: 130, alt: 'logo' %>
+  </div>
+
+    <div class="header_login">
+      <% if user_signed_in? %>
+          <%=link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
+      <% else %>
+          <%=link_to 'Login / Sign up', new_user_session_path, :method => :create %>
+      <% end %>
+    </div>
+
+    <div>
+
+      <%= form_tag(posts_path, method: "get", id: "searchBox") do %>
+              <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+              <%= submit_tag "Search" %>
+      <% end %>
+
+    </div>
+
+    <div id="searchContainer" style="cursor: hand">
+      <svg class="svgIcon-use" width="25" height="25" viewBox="0 0 25 25">
+          <path d="M20.067 18.933l-4.157-4.157a6 6 0 1 0-.884.884l4.157 4.157a.624.624 0 1 0 .884-.884zM6.5 11c0-2.62 2.13-4.75 4.75-4.75S16 8.38 16 11s-2.13 4.75-4.75 4.75S6.5 13.62 6.5 11z"></path>
+      </svg>
+    </div>
+
+    <div class="burger">
+      <svg height="26px" style="enable-background:new 0 0 32 32;" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/></svg>
+    </div>
+  </div>
+
+    <script>
+        $(function() {
+            $('#searchContainer').click(function(){
+              $('#searchBox').toggle();
+            });
+        });
+    </script>
+
+
+
+
+<div class="flex">
+  <div class="flexitem searchtab">Search</div>
+  <div class="flexitem" id="home"><%= link_to 'Home', home_index_path, class: 'headerlinks'%></div>
+  <div class="flexitem"><%= link_to 'About Weexus', '/pages/aboutweexus.erb', class: 'headerlinks'%></div>
+  <% if user_signed_in? %>
+  <div class="flexitem"><%= link_to 'Share your Story', new_post_path, class: 'headerlinks' %></div>
+  <div class="flexitem"><%=link_to 'Edit your Profile', users_profile_path, class: 'headerlinks' %></div>
+  <% end %>
+  <div class="flexitem"><%= link_to 'Our Experiences', posts_path, class: 'headerlinks' %></div>
+  <% if user_signed_in? %>
+  <% if can? :update, Tag %>
+  <div class="flexitem"><%= link_to 'Tags', tags_path, class: 'headerlinks' %></div>
+  <% end %>
+  <% if can? :update, Exclusion %>
+  <div class="flexitem"><%= link_to 'Exclusions', exclusions_path, class: 'headerlinks' %></div>
+  <% end %>
+  <% if can? :manage, User %>
+  <div class="flexitem"><%= link_to 'Users', users_path, class: 'headerlinks' %></div>
+  <% end %>
+</div>
+
+
+
+<script>
+  $(function(){
+    $('.burger').click(function(){
+      $('.flex').slideToggle();
+    });
+  });
+  </script>
+<% end %>
+</header>
+
+    <div id="main-content">
+      <%= yield %>
+    </div>
+
+      <div class="footer">
+        <div class="flexitem" id="facebook">Facebook</div>
+        <div class="flexitem">Twitter</div>
+        <div class="flexitem">Instagram</div>
+        <div class="flexitem"><%= link_to 'Terms & Conditions', '/pages/privacy.erb'%></div>
+        <div class="flexitem contact"><%= link_to 'Contact', '/pages/contact.erb'%></div>
+        <div class="flexitem submissionhelp">
+          <%= link_to 'How to share your Experience', '/pages/howto' %>
+        </div>
+      </div>
+
+  </body>
+</div>
+</html>

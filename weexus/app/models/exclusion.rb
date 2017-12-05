@@ -1,2 +1,0 @@
-class Exclusion < ApplicationRecord
-end
